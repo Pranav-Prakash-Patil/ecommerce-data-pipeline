@@ -9,6 +9,7 @@ Last updated: 2026-10-25
 - Added 20 dbt models across staging, facts, dimensions, and reporting marts. The marts cover monthly sales, delivery performance by state, product performance, payment mix, and category review scores.
 - Added 35 dbt data-quality checks for required identifiers and reporting dimensions.
 - Added a GitHub Actions workflow that builds the pipeline on the synthetic sample data.
+- Initialized a local Git repository on branch main and committed the project. The local .env and full data files are excluded by .gitignore.
 - Added scripts/download_olist.ps1 for retrieving and checking the public source dataset from Kaggle.
 - Completed and saved the Metabase connection, Orders by status question, and E-commerce Operations Dashboard in Our analytics.
 - Configured persistent Docker volumes for PostgreSQL data, Metabase state, and Airflow metadata/auth files.
@@ -20,6 +21,7 @@ Last updated: 2026-10-25
 - That successful run ingested all nine synthetic source tables (22 total rows), then built all 20 dbt models and passed all 35 checks: 55 total dbt build results, with no failures.
 - The sample data is intentionally small and synthetic. The project is currently configured to use it so the pipeline works immediately after startup.
 - The Metabase dashboard and saved questions persist in the metabase-data volume. The dashboard currently reflects the synthetic sample tables.
+- No GitHub remote is configured yet, so the CI workflow has not run on GitHub and the project is not published as a CV link.
 
 ## Full Olist dataset
 

@@ -130,6 +130,17 @@ From the project folder, run `docker compose up -d` to start the containers afte
 - Payment type and installment patterns.
 - Customer and seller geographic summaries.
 
+## Publish the project to GitHub
+
+This project is tracked locally on the `main` branch and includes a GitHub Actions workflow. To publish it, create an empty GitHub repository, then add it as the remote and push:
+
+```powershell
+git remote add origin https://github.com/<YOUR_USERNAME>/ecommerce-data-pipeline.git
+git push -u origin main
+```
+
+The `.gitignore` excludes `.env` and files under `data/raw/`; keep it that way. Do not upload local credentials or the downloaded source data.
+
 ## Repository layout
 
 ```text

@@ -1,0 +1,3 @@
+review_id,order_id,review_score,review_comment_title,review_comment_message,review_creation_date,review_answer_timestamp
+review_001,order_001,5,Great,Arrived quickly,2018-01-07 00:00:00,2018-01-08 00:00:00
+review_002,order_002,2,Late,Arrived after estimate,2018-01-10 00:00:00,2018-01-11 00:00:00

@@ -1,0 +1,127 @@
+version: 2
+
+models:
+  - name: stg_customers
+    columns:
+      - name: customer_id
+        data_tests:
+          - not_null
+          - unique
+
+  - name: stg_geolocation
+    columns:
+      - name: geolocation_zip_code_prefix
+        data_tests:
+          - not_null
+      - name: latitude
+        data_tests:
+          - not_null
+      - name: longitude
+        data_tests:
+          - not_null
+
+  - name: stg_orders
+    columns:
+      - name: order_id
+        data_tests:
+          - not_null
+          - unique
+      - name: customer_id
+        data_tests:
+          - not_null
+
+  - name: stg_products
+    columns:
+      - name: product_id
+        data_tests:
+          - not_null
+          - unique
+
+  - name: stg_product_category_translation
+    columns:
+      - name: product_category_name
+        data_tests:
+          - not_null
+          - unique
+
+  - name: stg_order_reviews
+    columns:
+      - name: review_id
+        data_tests:
+          - not_null
+      - name: order_id
+        data_tests:
+          - not_null
+      - name: review_score
+        data_tests:
+          - not_null
+
+  - name: stg_sellers
+    columns:
+      - name: seller_id
+        data_tests:
+          - not_null
+          - unique
+
+  - name: fct_orders
+    columns:
+      - name: order_id
+        data_tests:
+          - not_null
+          - unique
+
+  - name: dim_products
+    columns:
+      - name: product_id
+        data_tests:
+          - not_null
+          - unique
+
+  - name: dim_sellers
+    columns:
+      - name: seller_id
+        data_tests:
+          - not_null
+          - unique
+
+  - name: dim_geolocations
+    columns:
+      - name: geolocation_zip_code_prefix
+        data_tests:
+          - not_null
+          - unique
+
+  - name: mart_monthly_sales
+    columns:
+      - name: sales_month
+        data_tests:
+          - not_null
+          - unique
+
+  - name: mart_delivery_performance_by_state
+    columns:
+      - name: customer_state
+        data_tests:
+          - not_null
+          - unique
+
+  - name: mart_product_performance
+    columns:
+      - name: product_category_name
+        data_tests:
+          - not_null
+          - unique
+
+  - name: mart_payment_mix
+    columns:
+      - name: payment_type
+        data_tests:
+          - not_null
+          - unique
+
+  - name: mart_category_review_scores
+    columns:
+      - name: product_category_name
+        data_tests:
+          - not_null
+          - unique

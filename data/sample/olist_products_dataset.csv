@@ -1,0 +1,3 @@
+product_id,product_category_name,product_name_lenght,product_description_lenght,product_photos_qty,product_weight_g,product_length_cm,product_height_cm,product_width_cm
+prod_001,beleza_saude,35,250,2,500,20,10,15
+prod_002,utilidades_domesticas,42,180,1,800,25,12,18

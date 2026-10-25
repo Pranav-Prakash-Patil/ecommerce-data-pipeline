@@ -1,0 +1,4 @@
+customer_id,customer_unique_id,customer_zip_code_prefix,customer_city,customer_state
+cust_001,unique_001,13010, campinas,SP
+cust_002,unique_002,01310,sao paulo,SP
+cust_003,unique_003,30110,belo horizonte,MG

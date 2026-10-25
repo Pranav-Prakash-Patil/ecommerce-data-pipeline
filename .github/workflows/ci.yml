@@ -1,0 +1,44 @@
+name: pipeline-ci
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  sample-pipeline:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:17-alpine
+        env:
+          POSTGRES_DB: ecommerce
+          POSTGRES_USER: ecommerce
+          POSTGRES_PASSWORD: ecommerce
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U ecommerce -d ecommerce"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      DATABASE_URL: postgresql://ecommerce:ecommerce@localhost:5432/ecommerce
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - name: Install pipeline dependencies
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt
+          python -m pip install "dbt-core==1.10.22" "dbt-postgres==1.10.2"
+      - name: Load sample CSVs
+        run: python scripts/ingest_olist.py --data-dir data/sample
+      - name: Build dbt models and run data checks
+        run: >-
+          dbt build
+          --project-dir dbt
+          --profiles-dir dbt
+          --log-path /tmp/dbt-logs
+          --target-path /tmp/dbt-target
